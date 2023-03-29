@@ -186,7 +186,7 @@ let getExtension = async (filename) => {
           </div>
           <div className="register-formGroup">
             <label>StemNFT Title</label>
-            <input type="text" placeholder='ArchiNFT Name' value={title} onChange={(e) => setTitle(e.target.value)} autoFocus={true} />
+            <input type="text" placeholder='STEM NFT Name' value={title} onChange={(e) => setTitle(e.target.value)} autoFocus={true} />
           </div>
           <div className="register-formGroup">
             <label>Description</label>
