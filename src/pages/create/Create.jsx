@@ -176,16 +176,16 @@ let getExtension = async (filename) => {
   return (
     <div className='register section__padding'>
       <div className="register-container">
-        <h1>Create ArchiNFT Asset</h1>
+        <h1>Create STEM NFT Asset</h1>
         <form className='register-writeForm' autoComplete='off' onSubmit={handleSubmit}>
           <div className="register-formGroup">
-            <label>3D Design</label>
+            <label>NFT Cover Image</label>
             <input type="file" onChange={(e) => {setDesign3dImage(e.target.files[0]); setDesign3dImageName(e.target.files[0].name)} } className='custom-file-input'/>
             <p><span>or</span></p>
             <input type="text" placeholder='Paste the URl' value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} autoFocus={true} />
           </div>
           <div className="register-formGroup">
-            <label>Title</label>
+            <label>StemNFT Title</label>
             <input type="text" placeholder='ArchiNFT Name' value={title} onChange={(e) => setTitle(e.target.value)} autoFocus={true} />
           </div>
           <div className="register-formGroup">
@@ -205,12 +205,10 @@ let getExtension = async (filename) => {
           <div className="register-formGroup">
             <label>Category</label>
             <select onChange={(e) => setCategory(e.target.value)} >
-               <option>Residential Buildings.</option>
-               <option>Educational Buildings</option>
-               <option>Institutional Buildings</option>
-               <option>Assembly Buildings</option>
-               <option>Business Buildings</option>
-               <option>Mercantile Buildings</option>
+               <option>Sience Books.</option>
+               <option>Engineering Book</option>
+               <option>Technology Book</option>
+               <option>Mathematic Book</option>
             </select>
           </div>
           <div className="register-formGroup">
@@ -218,7 +216,7 @@ let getExtension = async (filename) => {
             <input type="file" name ='data'
               onChange={(e) =>{ setDesignfile(e.target.files[0]); setDesignfilename(e.target.files[0].name)} }className='custom-file-input'/>
           </div>
-          <button type="submit" className="register-writeButton">Create</button>
+          <button type="submit" className="register-writeButton">Create Stem NFT</button>
         </form>
       </div>
     </div>   
