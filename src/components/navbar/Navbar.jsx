@@ -8,7 +8,6 @@ import { isLogging, logout, login } from "./../../near/utils";
 const Menu = () => (
   <>
     <Link to="/"><p>Explore</p> </Link>
-    <Link to="/Stats"><p>Stats</p> </Link>
 
   </>
 )
@@ -43,8 +42,8 @@ const Navbar = () => {
       <div className="navbar-sign">
         {isLogging() ? (
           <>
-            {"Wakili" && <Link to="/myArchiNfts/Wakili"><p>ArchiNFTs</p></Link>}
-            {"Wakili" && <Link to="myListing/wakili"><p>Listing</p></Link>}
+            {"Wakili" && <Link to="/myArchiNfts/Wakili"><p>My StemNFTS</p></Link>}
+            {"Wakili" && <Link to="myListing/wakili"><p>My Auctions</p></Link>}
             <Link to="/create">
               <button type='button' className='primary-btn' >Create</button>
             </Link>
