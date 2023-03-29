@@ -3,13 +3,13 @@
 :root {
   --font-family: 'Poppins', sans-serif;
 
-  --gradient2: linear-gradient(89.97deg, #EB1484 1.84%, #c81cc5 102.67%);
-  --primary-btn: linear-gradient(101.12deg, #EB1484 27.35%, #C91CC3 99.99%, #C81CC5 100%, #C81CC5 100%);
+  --gradient2: linear-gradient(89.97deg, #4B0082 1.84%, #7B68EE 102.67%);
+  --primary-btn: linear-gradient(101.12deg, #4B0082 27.35%, #4B0082 99.99%, #7B68EE 100%, #7B68EE 100%);
   
-  --primary-color: #EB1484;
-  --secondary-color: #c81cc5;
+  --primary-color: #ccc9ce;
+  --secondary-color: #7B68EE;
 
-  --color-bg: #24252d;
+  --color-bg: #8c8d97;
   --color-card : #2A2D3A;
   --color-footer : #24252D;
 }

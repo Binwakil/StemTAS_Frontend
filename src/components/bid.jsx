@@ -1,8 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { FaEllipsisV } from "react-icons/fa"
-
-import { getAccount, isLogging, login, OfferPrice} from"./../near/utils";
+// import { FaEllipsisV } from "react-icons/fa"
+import { getAccount, isLogging, login} from"./../near/utils";
+// import animations and framer-motion
+import { motion } from "framer-motion";
+import {
+	SingleProjectAnim,
+} from "./animation";
 
 export let Bid = ({product}) => {
 
@@ -14,11 +18,11 @@ export let Bid = ({product}) => {
     let [tokenDescription, setTokenDescription] = useState('');
     let [tokenImage, setTokenImage] = useState('');
     let [designDoc, setdesignDoc] = useState('');
-    let [nftCategory, setNftCategory] = useState('');
+    // let [nftCategory, setNftCategory] = useState('');
     let [tokenprice, setTokenprice] = useState('');
-    let [offerPrice, setOfferPrice] = useState('');
+    // let [offerPrice, setOfferPrice] = useState('');
     let [ownerid, setownerid] = useState('');
-    let [makingoffer, setmakingoffer] = useState(false);
+    // let [makingoffer, setmakingoffer] = useState(false);
     let account_id = getAccount();
 
 
@@ -30,37 +34,19 @@ export let Bid = ({product}) => {
         setdesignDoc(extra);
         setTokenprice(sale_conditions);
         setownerid(owner_id);
-    })
+    }, [token_id, title, sale_conditions, description, extra, media ])
    
 
-    let makeOffer = async () => {
-      let price = ""
-      price = prompt('Please Enter your Offer Price')
-      setOfferPrice(price)
-      let sale_conditions = {
-        sale_conditions: offerPrice
-      };
-      setmakingoffer(true);
-      let oprice = JSON.stringify(sale_conditions)
-      let making_offer = await OfferPrice(tokenId, price+"000000000000000000000000");
-      if(making_offer)
-      {
-      alert("the NFT is approve for listing")
-      setmakingoffer(false);
-      console.log("Status " +making_offer)
-      }
 
-      
-  }
   let handleLogin = async () => {
     login()
   }
   return (
-    <div className="bids-container-card">
+    <motion.div variants={SingleProjectAnim} className="bids-container-card">
       <div className="card-column1" >
         <div className="bids-card">
           <div className="bids-card-top">
-            <p className="bids-title">{tokenName.toUpperCase()}</p>
+            <p className="bids-title">{tokenName?.toUpperCase()}</p>
             <img className="imageclass" src={tokenImage} alt="" />
           </div>
           <div className="nfttextdiv">
@@ -81,15 +67,15 @@ export let Bid = ({product}) => {
                     </div>
                     :
                     <div className=" center">
-                      <button className='register-writeButton' onClick={() => makeOffer()}>{makingoffer ? 'Buying ........' : 'Buy Archinft'}</button>
+                      <Link className='register-writeButton' to={`/biditem/${tokenId}`}>Place Bid</Link>
                     </div>
                 }
               </div>
               :
+              
               <div className=" center">
                 <button className='register-writeButton' onClick={() => handleLogin()}>Connect Wallet</button>
               </div>
-
               
           }
           <div className="bids-card-bottom">
@@ -97,7 +83,7 @@ export let Bid = ({product}) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
           
     )
   }

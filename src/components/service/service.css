@@ -1,0 +1,68 @@
+
+.service{
+    width: 100%;
+    padding:10px 30px 40px;
+}
+
+.service h2 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 28px;
+    text-align: center;
+    line-height: 42px;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+.service h3 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.service p{
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 10px 0;
+}
+.service-container {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    margin: auto;
+    width: 90%;
+    margin-top: 30px;
+}
+.card {
+    flex-basis: 25%;
+    background: #2A2D3A;
+    border-radius: 10px;
+    padding: 11px 12px 19px 11px;
+    margin-inline: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .service {
+        padding: 10px;
+    }
+    .service-container{
+        width: 95%;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+    }
+    .card {
+        flex-basis: 33.3%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .service-container {
+            flex-direction: column;
+        }
+}

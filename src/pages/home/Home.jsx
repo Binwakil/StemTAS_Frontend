@@ -1,5 +1,5 @@
 import React from 'react';
-import {Bids, Header, } from '../../components'
+import {Bids, Header, Service} from '../../components'
 
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
   return <div>
    <Header />
    <Bids title="Hot Bids"  />
+   <Service />
   </div>;
 };
 

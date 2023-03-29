@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './navbar.css'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/stemlogo.png'
 import { Link } from "react-router-dom";
 import { isLogging, logout, login } from "./../../near/utils";
 
@@ -15,7 +15,7 @@ const Menu = () => (
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(true)
 
   const handleLogout = () => {
     logout()
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="navbar-links_logo">
           <img src={logo} alt="logo" />
           <Link to="/">
-            <h1>ArchiVerse</h1>
+            <h1>StemTas</h1>
           </Link>
         </div>
         <div className="navbar-links_container">

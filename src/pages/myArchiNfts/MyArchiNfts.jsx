@@ -3,7 +3,7 @@ import './myArchiNfts.css'
 import profile_banner from '../../assets/profile_banner.png'
 import profile_pic from '../../assets/Image.png'
 import ArchiNFTs from '../../components/archinfts/Achinfts'
-import { isLogging, getAccount} from "./../../near/utils";
+import { getAccount} from "./../../near/utils";
 
 const MyArchiNfts = () => {
 
@@ -28,7 +28,7 @@ const MyArchiNfts = () => {
             <option>High to Low</option>
           </select>
         </div>
-        <ArchiNFTs   title="My ArchiNFTs" />
+        <ArchiNFTs   title="My StemTas" />
       </div>
     </div>
   );

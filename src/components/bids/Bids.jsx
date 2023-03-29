@@ -5,31 +5,44 @@ import { AiFillHeart,AiOutlineHeart } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import { Bid } from "../bid";
 import { isLogging, approveAccount, loadCSaleItems } from "./../../near/utils";
+// import animations and framer-motion
+import { useAnimation, motion } from "framer-motion";
+import {
+	ProjAnimation
+} from "./../animation";
+import { useInView } from "react-intersection-observer";
 
 const Bids = ({title}) => {
-  let [userNFT, setUserNFT] = useState([]);
+  const controls = useAnimation();
+	const { ref, inView } = useInView();
+	useEffect(() => {
+		if (inView) {
+			controls.start("show");
+		} else {
+			controls.start("hidden");
+		}
+	}, [controls, inView]);
 
+  let [userNFT, setUserNFT] = useState([]);
   let getusernft = async() => {
     let gettingNFT = await loadCSaleItems()
     setUserNFT(gettingNFT);
-    console.log(gettingNFT)
+    // console.log(gettingNFT)
 }
 
-let getbal = async() => {
-  // let bals = await balances()
-  // setBalance(bals);
-}
 
 useEffect(() => {
   getusernft();
-  getbal();
-},)
+}, [userNFT])
 
   return (
-    <div className='bids section__padding'>
+    <motion.div ref={ref}
+				initial="hidden"
+				animate={controls} 
+        variants={ProjAnimation} className='bids section__padding'>
     <div className="bids-container">
     <div className="bids-container-text">
-        <h1>Archiverse MarketPlace</h1>
+        <h1>StemTas MarketPlace</h1>
       </div>    
     <div className="contract_asset_container">
             {
@@ -41,7 +54,7 @@ useEffect(() => {
             </div>
             </div>
   
-  </div>
+  </motion.div>
 )
 }
 
