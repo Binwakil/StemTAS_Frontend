@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import './biditem.css'
 import Modal from './Modal';
 import Modal2 from './Modal2';
+import Modal3 from './Modal3';
 import Timer from './Timer';
 // import creator from '../../assets/seller2.png'
 // import item from '../../assets/item1.png'
@@ -23,7 +24,9 @@ const Biditem = ({product}) => {
     let [makingoffer, setmakingoffer] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isModal, setIsModal] = useState(false);
+    const [ischeck, setIsCheck] = useState(false);
     // Timer
+  const [time, setTime] = useState(900); // 900 seconds = 15 minutes
   const [isRunning, setIsRunning] = useState(false);
 
       let getusernft = async() => {
@@ -63,6 +66,7 @@ let makeOffer = async (op) => {
     <div className='item section__padding'>
         {isOpen && <Modal setIsOpen={setIsOpen} tokenprice={tokenprice} makeOffer={makeOffer} setOfferPrice={setOfferPrice}/>}
         {isModal && <Modal2 setIsModal={setIsModal}/>}
+        {ischeck && <Modal3 setIsCheck={setIsCheck}/>}
         <div className="item-image">
           <img src={tokenImage} alt="item" />
         </div>
@@ -75,12 +79,9 @@ let makeOffer = async (op) => {
               <p>{tokenDescription}</p>
             </div>
             <div className="item-content-buy">
-              {makingoffer ? <Timer setIsRunning={setIsRunning} isRunning={isRunning}/> : ''}
-              <button className="primary-btn" onClick={() => setIsOpen(true) }>{makingoffer ? 'Bidding ........' : 'Bid Stemtas'}</button>
+              {makingoffer ? <Timer setIsRunning={setIsRunning} isRunning={isRunning} time={time} setTime={setTime}/> : ''}
+              {time <= 0 ? <button className="primary-btn" onClick={() => setIsCheck(true)} >Checkout</button> : <button className="primary-btn" disabled={makingoffer} onClick={() => setIsOpen(true) }>{makingoffer ? 'Bidding ........' : 'Bid Stemtas'}</button>}
               <button className="secondary-btn" onClick={() => setIsModal(true)} >View Biddings</button>
-            </div>
-            <div className="item-content-buy">
-              <button className="primary-btn" onClick={() => setIsModal(true)} >Checkout</button>
             </div>
           </div>
           

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Timer = ({isRunning}) => {
-  const [time, setTime] = useState(900); // 900 seconds = 15 minutes
-
+const Timer = ({isRunning, time, setTime}) => {
   useEffect(() => {
     let interval = null;
     if (isRunning && time > 0) {
