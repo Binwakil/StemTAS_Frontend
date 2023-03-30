@@ -76,8 +76,11 @@ let makeOffer = async (op) => {
             </div>
             <div className="item-content-buy">
               {makingoffer ? <Timer setIsRunning={setIsRunning} isRunning={isRunning}/> : ''}
-              <button className="primary-btn" onClick={() => setIsOpen(true) }>{makingoffer ? 'Buying ........' : 'Buy Stemtas'}</button>
-              <button className="secondary-btn" onClick={() => setIsModal(true)} >View biddings</button>
+              <button className="primary-btn" onClick={() => setIsOpen(true) }>{makingoffer ? 'Bidding ........' : 'Bid Stemtas'}</button>
+              <button className="secondary-btn" onClick={() => setIsModal(true)} >View Biddings</button>
+            </div>
+            <div className="item-content-buy">
+              <button className="primary-btn" onClick={() => setIsModal(true)} >Checkout</button>
             </div>
           </div>
           
