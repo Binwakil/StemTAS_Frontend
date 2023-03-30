@@ -43,7 +43,7 @@ const Biditem = ({product}) => {
 // const handleStart = () => {
 // }
 let makeOffer = async (op) => {      
-    setIsRunning(true);
+    setIsRunning(!isRunning);
     console.log(offerPrice)
     console.log(op)
       let sale_conditions = {
