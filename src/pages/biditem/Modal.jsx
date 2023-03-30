@@ -8,16 +8,18 @@ const Modal = ({ setIsOpen, tokenprice, makeOffer, setOfferPrice}) => {
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    if(price <= tokenprice){
-        console.log("less than")
-        return toast.error(`Your offer price is less than ${tokenprice} token price!`);
+    if(Number(price) <= Number(tokenprice)){
+        return toast.error(`Your offer price should be greater than ${tokenprice} token price!`);
       }
-
       setOfferPrice(price)
-      console.log(price)
-      makeOffer()
+      makeOffer(price)
       setIsOpen(false)
   }
+
+  const handlePrice = (e) => {
+    setPrice(e.target.value)
+  }
+
   return (
     <>
       <div className={styles.darkBG} />
@@ -25,15 +27,15 @@ const Modal = ({ setIsOpen, tokenprice, makeOffer, setOfferPrice}) => {
       <div className={styles.centered}>
         <div className={styles.modal}>
           <div className={styles.modalHeader}>
-            <h5 className={styles.heading}>{`Please Enter your Offer Price:${tokenprice}`}</h5>
+            <h5 className={styles.heading}>{`Please Enter your Offer Price:`}</h5>
           </div>
           <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={styles.modalContent}>
             <div className={styles.formGroup}>
-              <label htmlFor='offer'>Offer price</label>            
-              <input type="tel" id="offer" placeholder='Offer price' value={price} onChange={(e) => setPrice(e.target.value)} />
+              <label htmlFor='offer'>Offer price start from {tokenprice}</label>            
+              <input type="tel" id="offer" placeholder='Offer price' value={price} onChange={handlePrice} />
             </div>
           </div>
           <div className={styles.modalActions}>

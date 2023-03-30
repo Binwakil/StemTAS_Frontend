@@ -2,11 +2,6 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 // import { FaEllipsisV } from "react-icons/fa"
 import { getAccount, isLogging, login} from"./../near/utils";
-// import animations and framer-motion
-import { motion } from "framer-motion";
-import {
-	SingleProjectAnim,
-} from "./animation";
 
 export let Bid = ({product}) => {
 
@@ -42,7 +37,7 @@ export let Bid = ({product}) => {
     login()
   }
   return (
-    <motion.div variants={SingleProjectAnim} className="bids-container-card">
+    <div className="bids-container-card">
       <div className="card-column1" >
         <div className="bids-card">
           <div className="bids-card-top">
@@ -83,7 +78,7 @@ export let Bid = ({product}) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
           
     )
   }

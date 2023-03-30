@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import './biditem.css'
 import Modal from './Modal';
 import Modal2 from './Modal2';
+import Timer from './Timer';
 // import creator from '../../assets/seller2.png'
 // import item from '../../assets/item1.png'
 import { Link, useParams } from "react-router-dom";
@@ -22,6 +23,8 @@ const Biditem = ({product}) => {
     let [makingoffer, setmakingoffer] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isModal, setIsModal] = useState(false);
+    // Timer
+  const [isRunning, setIsRunning] = useState(false);
 
       let getusernft = async() => {
         let gettingNFT = await loadCSaleItems()
@@ -37,8 +40,12 @@ const Biditem = ({product}) => {
       getusernft();
     }, [])
 
-
-  let makeOffer = async () => {      
+// const handleStart = () => {
+// }
+let makeOffer = async (op) => {      
+    setIsRunning(true);
+    console.log(offerPrice)
+    console.log(op)
       let sale_conditions = {
         sale_conditions: offerPrice
       };
@@ -68,6 +75,7 @@ const Biditem = ({product}) => {
               <p>{tokenDescription}</p>
             </div>
             <div className="item-content-buy">
+              {makingoffer ? <Timer setIsRunning={setIsRunning} isRunning={isRunning}/> : ''}
               <button className="primary-btn" onClick={() => setIsOpen(true) }>{makingoffer ? 'Buying ........' : 'Buy Stemtas'}</button>
               <button className="secondary-btn" onClick={() => setIsModal(true)} >View biddings</button>
             </div>

@@ -3,22 +3,24 @@ export const services = [
 	{
 		id: "1",
 		name: "Check bid",
-		category: "Stem books sit amet, consectetur adipisicing elit",
+		category: "Place bid on auction token, ",
 	},
 	{
 		id: "2",
 		name: "Place Offer",
-		category: "Lorem ipsum dolor sit amet, consectetur adipisicing elit veniam",
+		category:
+			"The token is sold to the highest bidder at the end of the auction period",
 	},
 	{
 		id: "3",
 		name: "Time",
-		category: "Lorem ipsum dolor sit amet, consectetur adipisicing elit veniam",
+		category: "Auctions close 15 minutes after the first bid is received",
 	},
 	{
 		id: "4",
-		name: "Buy with Token",
-		category: "Lorem ipsum dolor sit amet, consectetur adipisicing elit veniam",
+		name: "Transparent Bid",
+		category:
+			"All bids are transparent and visible to all users of the platform.",
 	},
 ];
 
