@@ -4,6 +4,8 @@ import * as React from 'react';
 import { useState } from "react";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import { isLogging, mintNFT } from "./../../near/utils";
+import toast, { Toaster } from "react-hot-toast";
+
 
 
 const projectId = process.env.REACT_APP_INFURA_PROJECT_ID;
@@ -63,14 +65,12 @@ const Create = () => {
     
 
     if (!nftName || !nftDescription) {
-
-        alert('Kindly fill all the required  Information...');
-        
+        return toast.error('Kindly fill all the required  Information...');
     }
    if (!designUrl || designUrl.length === 0) {
       //if the User dont want Use IPFS to store the NFT image he can use an existing image URL
         if (!imgUrl || imgUrl.length === 0) {
-            alert("tryagin or use Image URL")
+            return toast.error(`try again or use Image URL`);
         }
         else{
           nftfile = imgUrl;
@@ -85,9 +85,9 @@ const Create = () => {
         console.log(encryptDoc)
         let mintingNFT = await mintNFT(token_id, nftName, nftDescription, nftfile, nftdoc, nftCategory);
         if (mintingNFT) {
-            alert('NFT successfully minted');
+            return toast.success('NFT successfully minted');
         } else {
-            alert('Error! Please try again');
+            return toast.error('Error! Please try again');
         }
         setMint(false);
     }
@@ -107,7 +107,7 @@ let getExtension = async (filename) => {
    
     e.preventDefault();
     if (!designfile || designfile.length === 0 ) {
-      return alert("the Architectural Documents are not Selected");
+      return toast.error("the Architectural Documents are not Selected");
     }
   
     try {
@@ -115,7 +115,7 @@ let getExtension = async (filename) => {
       if (design3dImage || design3dImage.length !== 0)
       {
         if (!allowed3DExtensions.exec(design3dImageName)) {
-          alert('Invalid 3D file type: it should be pnd or jpg or gif');
+           toast.error('Invalid 3D file type: it should be pnd or jpg or gif');
           return false;
           }
           else
@@ -130,7 +130,7 @@ let getExtension = async (filename) => {
       if (designfile || designfile.length !== 0)
       {
         if (!allowedExtensions.exec(designfilename)) {
-          alert('Invalid Archi Document file type: it should be pdf or Docx');
+          toast.error('Invalid Archi Document file type: it should be pdf or Docx');
           return false;
           }
           else
@@ -167,7 +167,7 @@ let getExtension = async (filename) => {
       console.log("URL:   https://ipfs.io/ipfs/" + images.path)
      
     } catch (error) {
-      console.log(error.message);
+      return toast.error(error.message);
     }
   };
 
@@ -176,6 +176,7 @@ let getExtension = async (filename) => {
   return (
     <div className='register section__padding'>
       <div className="register-container">
+        <Toaster/>
         <h1>Create STEM NFT Asset</h1>
         <form className='register-writeForm' autoComplete='off' onSubmit={handleSubmit}>
           <div className="register-formGroup">
