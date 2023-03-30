@@ -47,18 +47,18 @@ const Biditem = ({product}) => {
 // }
 
 let checkout = async () => {
-  let sale_conditions = {
-    sale_conditions: offerPrice
-  };
+ 
   setmakingoffer(true);
-  let oprice = JSON.stringify(sale_conditions)
-  let making_offer = await OfferPrice(tokenId, sale_conditions+"000000000000000000000000");
+  let oprice = JSON.stringify(tokenprice)
+  let making_offer = await OfferPrice(tokenId, tokenprice+"000000000000000000000000");
   if(making_offer)
   {
   alert("the NFT is approve for listing")
   setmakingoffer(false);
   console.log("Status " +making_offer)
   }
+
+  
 }
 
 let makeOffer = async (op) => {      
@@ -96,7 +96,7 @@ let makeOffer = async (op) => {
             </div>
             <div className="item-content-buy">
               {makingoffer ? <Timer setIsRunning={setIsRunning} isRunning={isRunning} time={time} setTime={setTime}/> : ''}
-              {time <= 0 ? <button className="primary-btn" onClick={() => checkout()} >Checkout</button> : <button className="primary-btn" disabled={makingoffer} onClick={() => setIsOpen(true) }>{makingoffer ? 'Bidding ........' : 'Bid Stemtas'}</button>}
+              {time <= 0 ?<button className="primary-btn" onClick={() => checkout()} >Checkout</button>: <button className="primary-btn" disabled={makingoffer} onClick={() => setIsOpen(true) }>{makingoffer ? 'Bidding ........' : 'Bid Stemtas'}</button> }
               <button className="secondary-btn" onClick={() => setIsModal(true)} >View Biddings</button>
             </div>
           </div>
