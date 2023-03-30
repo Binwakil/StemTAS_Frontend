@@ -1,6 +1,6 @@
 import React from 'react';
 import './myArchiNfts.css'
-import profile_banner from '../../assets/profile_banner.png'
+import profile_banner from '../../assets/children2.jpg'
 import profile_pic from '../../assets/Image.png'
 import ArchiNFTs from '../../components/archinfts/Achinfts'
 import { getAccount} from "./../../near/utils";

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './myListing.css'
 import { Link, useParams } from "react-router-dom";
 
-import profile_banner from '../../assets/profile_banner.png'
+import profile_banner from '../../assets/children2.jpg'
 import profile_pic from '../../assets/Image.png'
 import Salenfts from '../../components/salenfts/Salenfts'
 
